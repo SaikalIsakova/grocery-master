@@ -22,13 +22,12 @@ public class CheckProductServiceImpl implements CheckProductService {
     public void save(CheckProduct checkProduct) {
 
         PreparedStatement ps= dbHelper.getConnection("insert into tb_checks_products" +
-                " (id,product_id,check_id,count,cost)values(?,?,?,?,?)");
+                " (product_id,check_id,count,cost)values(?,?,?,?)");
         try {
-            ps.setLong(1,checkProduct.getId());
-            ps.setLong(2,checkProduct.getProduct().getId());
-            ps.setLong(3,checkProduct.getCheck().getId());
-            ps.setInt(4,checkProduct.getCount());
-            ps.setDouble(5,checkProduct.getCost());
+            ps.setLong(1,checkProduct.getProduct().getId());
+            ps.setLong(2,checkProduct.getCheck().getId());
+            ps.setInt(3,checkProduct.getCount());
+            ps.setDouble(4,checkProduct.getCost());
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Ошибка при сохранении чек-продукта");

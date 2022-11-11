@@ -3,20 +3,18 @@ package com.company.models;
 
 public class Check {
 private long id;
-private Employee employee;
+private Employee employee_id;
 private String add_date;
-private int num_of_check;
 private double totalSum;
 private int fd;
 
     public Check() {
     }
 
-    public Check(long id, Employee employee, String add_date, int num_of_check, double totalSum, int fd) {
+    public Check(long id, Employee employee, String add_date, double totalSum, int fd) {
         this.id = id;
-        this.employee = employee;
+        this.employee_id = employee;
         this.add_date = add_date;
-        this.num_of_check = num_of_check;
         this.totalSum = totalSum;
         this.fd = fd;
     }
@@ -29,12 +27,12 @@ private int fd;
         this.id = id;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Employee getEmployee_id() {
+        return employee_id;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployee_id(Employee employee_id) {
+        this.employee_id = employee_id;
     }
 
     public String getAdd_date() {
@@ -45,13 +43,6 @@ private int fd;
         this.add_date = add_date;
     }
 
-    public int getNum_of_check() {
-        return num_of_check;
-    }
-
-    public void setNum_of_check(int num_of_check) {
-        this.num_of_check = num_of_check;
-    }
 
     public double getTotalSum() {
         return totalSum;
@@ -62,7 +53,9 @@ private int fd;
     }
 
     public int getFd() {
-        return fd;
+
+        int a=new java.util.Random().nextInt(99)+1;
+        return a;
     }
 
     public void setFd(int fd) {
@@ -72,6 +65,10 @@ private int fd;
     @Override
     public String toString() {
         return
+
+                "id ="+id+
                 " Общая сумма =" + totalSum ;
     }
+
+
 }
